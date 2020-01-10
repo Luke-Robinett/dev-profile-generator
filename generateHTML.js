@@ -80,7 +80,7 @@ module.exports.generateHTML = function(data) {
                 <p>Hi</p>
                 <p>My name is ${data.name}!</p>
                 <p>Currently at ${data.company}</p>
-                City and State
+                <p>${data.location}</p>
                 <a href="${data.html_url}">Link to GitHub</a>
                 <a href="${data.blog}">Linke to blog</a>
                 <p>${data.bio}</p>
