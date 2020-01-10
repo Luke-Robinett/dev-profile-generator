@@ -74,23 +74,25 @@ function generateHTML(data) {
           <body>
             <div class="container">
               <header class="photo-header">
-                <img src="" alt="prof pic here" class="photo-header img">
+                <img src="${data.avatar_url}" alt="GitHub Profile Picture" class="photo-header img">
               </header>
               <main>
                 <p>Hi</p>
-                <p>My name is name!</p>
-                <p>Currently at work</p>
+                <p>My name is ${data.name}!</p>
+                <p>Currently at ${data.company}</p>
                 City and State
-                <a href="#">Link to GitHub</a>
-                <a href="#">Linke to blog</a>
-                <h1>Tagline</h1>
+                <a href="${data.html_url}">Link to GitHub</a>
+                <a href="${data.blog}">Linke to blog</a>
+                <p>${data.bio}</p>
               </main>
               <div class="row">
                 <div class="col col-md-6">
                   <h2>Public Repositories</h2>
+                  <h2>${data.public_repos}</h2>
                 </div>
                 <div class="col">
                   <h2>Followers</h2>
+                  <h2>${data.followers}</h2>
                 </div>
               </div>
               <div class="row">
