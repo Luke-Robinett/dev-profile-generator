@@ -1,24 +1,4 @@
-const colors = {
-  green: {
-    background: "#E6E1C3",
-    color: "black",
-  },
-  blue: {
-    background: "#5F64D3",
-    color: "white",
-  },
-  pink: {
-    background: "#879CDF",
-    color: "white",
-  },
-  red: {
-    background: "#DE9967",
-    color: "white",
-  }
-};
-
-module.exports.generateHTML = function(data) {
-  return `<!DOCTYPE html>
+<!DOCTYPE html>
     <html lang="en">
       <head>
         <meta charset="UTF-8" />
@@ -30,8 +10,8 @@ module.exports.generateHTML = function(data) {
         <title>Profile</title>
         <style>
           .container {
-            background-color: ${colors[data.color].background};
-            color: ${colors[data.color].color};
+            background-color: #5F64D3;
+            color: white;
           }
 
           .photo-header {
@@ -74,25 +54,25 @@ module.exports.generateHTML = function(data) {
           <body>
             <div class="container">
               <header class="photo-header">
-                <img src="${data.avatar_url}" alt="GitHub Profile Picture" class="photo-header img">
+                <img src="https://avatars2.githubusercontent.com/u/56566426?v=4" alt="GitHub Profile Picture" class="photo-header img">
               </header>
               <main>
                 <p>Hi</p>
-                <p>My name is ${data.name}!</p>
-                <p>Currently at ${data.company}</p>
+                <p>My name is Luke Robinett!</p>
+                <p>Currently at Comcast</p>
                 City and State
-                <a href="${data.html_url}">Link to GitHub</a>
-                <a href="${data.blog}">Linke to blog</a>
-                <p>${data.bio}</p>
+                <a href="https://github.com/Luke-Robinett">Link to GitHub</a>
+                <a href="https://www.lukerobinett.com">Linke to blog</a>
+                <p>Software Developer</p>
               </main>
               <div class="row">
                 <div class="col col-md-6">
                   <h2>Public Repositories</h2>
-                  <h2>${data.public_repos}</h2>
+                  <h2>8</h2>
                 </div>
                 <div class="col">
                   <h2>Followers</h2>
-                  <h2>${data.followers}</h2>
+                  <h2>10</h2>
                 </div>
               </div>
               <div class="row">
@@ -101,11 +81,10 @@ module.exports.generateHTML = function(data) {
                 </div>
                 <div class="col">
                   <h2>Following</h2>
-                  <h2>${data.following}</h2>
+                  <h2>0</h2>
                 </div>
               </div>
             </div>
             </body>
           </html>
-      `
-}
+      

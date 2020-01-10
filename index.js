@@ -3,19 +3,18 @@ const inquirer = require("inquirer");
 const axios = require("axios"); const myUsername = "luke-robinett";
 const generateHTML = require("./generateHTML");
 
-const questions = [
-
-];
-
 function writeToFile(fileName, data) {
-
-}
-
-function getProfileInfo(username) {
   axios
-    .get(`https://api.github.com/users/${username}`)
+    .get(`https://api.github.com/users/${data.username}`)
     .then(function (res) {
-      console.log(res.data);
+      res.data.color = data.color;
+      const html = generateHTML.generateHTML(res.data);
+
+      fs.writeFile(fileName, html, function (err) {
+        if (err) {
+          return console.log(err);
+        }
+      });
     });
 }
 
@@ -34,7 +33,7 @@ function promptForInfo() {
       },
     ])
     .then(function (response) {
-      getProfileInfo(response.username);
+      writeToFile("profile.html", response);
     });
 }
 
