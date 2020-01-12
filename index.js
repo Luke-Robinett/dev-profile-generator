@@ -8,7 +8,7 @@ function writeToFile(fileName, data) {
     .get(`https://api.github.com/users/${data.username}`)
     .then(function (res) {
       res.data.color = data.color;
-      const html = generateHTML.generateHTML(res.data);
+      const html = generateHTML(res.data);
 
       fs.writeFile(fileName, html, function (err) {
         if (err) {
@@ -27,9 +27,10 @@ function promptForInfo() {
         name: "username"
       },
       {
-        type: "input",
+        type: "rawlist",
         message: "What is your favorite color?",
-        name: "color"
+        name: "color",
+        choices: { "red", "blue", "green", "pink" }
       },
     ])
     .then(function (response) {

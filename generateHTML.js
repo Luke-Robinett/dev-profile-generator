@@ -17,7 +17,7 @@ const colors = {
   }
 };
 
-module.exports.generateHTML = function(data) {
+function generateHTML(data) {
   return `<!DOCTYPE html>
     <html lang="en">
       <head>
@@ -109,3 +109,5 @@ module.exports.generateHTML = function(data) {
           </html>
       `
 }
+
+module.exports = generateHTML;
