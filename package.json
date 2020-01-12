@@ -19,6 +19,7 @@
   "dependencies": {
     "axios": "^0.19.1",
     "geolocation": "^0.2.0",
-    "inquirer": "^7.0.3"
+    "inquirer": "^7.0.3",
+    "pdf-puppeteer": "^1.1.9"
   }
 }

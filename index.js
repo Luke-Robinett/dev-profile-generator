@@ -1,7 +1,8 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
 const axios = require("axios"); const myUsername = "luke-robinett";
-const generateHTML = require("./generateHTML");
+const convertHTMLToPDF = require("pdf-puppeteer");
+const generateHTML = require("./lib/generateHTML");
 
 function writeToFile(fileName, data) {
   axios
@@ -9,11 +10,15 @@ function writeToFile(fileName, data) {
     .then(function (res) {
       res.data.color = data.color;
       const html = generateHTML(res.data);
+      convertHTMLToPDF(html, pdf => {
+        fs.writeFile(fileName, pdf, err => {
+          if (err) {
+            console.log(err);
+            return;
+          }
 
-      fs.writeFile(fileName, html, function (err) {
-        if (err) {
-          return console.log(err);
-        }
+          console.log(`${fileName} saved!`);
+        })
       });
     });
 }
@@ -30,11 +35,11 @@ function promptForInfo() {
         type: "rawlist",
         message: "What is your favorite color?",
         name: "color",
-        choices: { "red", "blue", "green", "pink" }
+        choices: ["red", "blue", "green", "pink"]
       },
     ])
     .then(function (response) {
-      writeToFile("profile.html", response);
+      writeToFile(process.cwd() + "/output/profile.pdf", response);
     });
 }
 

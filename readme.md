@@ -6,4 +6,4 @@ This is a node.JS app that prompts the user for their GitHub profile name and fa
 This app utilizes several libraries, including:
 - Axiom for accessing the GitHub API and retrieving the data
 - Inquirer for prompting the user for input
-- Electron-PDF for converting the HTML page into a PDF file
+- pdf-puppeteer for converting the HTML page into a PDF file
